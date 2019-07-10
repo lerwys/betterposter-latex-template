@@ -1,5 +1,7 @@
 # Better Poster Latex Template
 
+Modifided fo UFAL purposes by Tom Kocmi
+
 *Now available in [Overleaf](https://www.overleaf.com/latex/templates/better-poster-latex-template/gmkgjvxqbyyt)!*
 
 The **Better Poster** is [Mike Morrison](https://twitter.com/mikemorrison)'s response to the traditional academic poster. In his own words:
