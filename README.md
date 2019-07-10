@@ -7,8 +7,6 @@ The **Better Poster** is [Mike Morrison](https://twitter.com/mikemorrison)'s res
 
  - If you want to learn more about the reasons behind the design and how it improves upon more typical academic poster templates, I recommend Mike's [video](https://www.youtube.com/watch?v=1RwJbhkCA58&feature=youtu.be).
  - If you want to see how people are using the Better Poster design, see [#betterposter](https://twitter.com/hashtag/betterposter?src=hash) on twitter.
- - If you want the original PowerPoint template, you can find it [here](https://t.co/6WRGQK63g6).
- - If you want to start using the LaTeX template instead, download the repository and keep reading!
 
 <kbd>
 <img src="https://raw.githubusercontent.com/rafaelbailo/betterposter-latex-template/master/example.png" width="600px" />
