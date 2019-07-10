@@ -2,6 +2,8 @@
 %%%% GNU General Public License v3.0
 %%%% Rafael Bailo
 %%%% https://github.com/rafaelbailo/betterposter-latex-template
+%%%%
+%%%% Modified by Tom Kocmi for UFAL purposes
 %%%% 
 %%%% Original design from Mike Morrison
 %%%% https://twitter.com/mikemorrison
@@ -44,11 +46,12 @@
 \definecolor{theory}{RGB}{26,35,126}
 \definecolor{methods}{RGB}{140,22,22}
 \definecolor{intervention}{RGB}{255,213,79}
+\definecolor{ufal}{RGB}{244,123,32}
 
 \newcommand{\columnbackgroundcolor}{white}
 \newcommand{\columnfontcolor}{black}
-\newcommand{\maincolumnbackgroundcolor}{imperialblue}
-\newcommand{\maincolumnfontcolor}{white}
+\newcommand{\maincolumnbackgroundcolor}{ufal}
+\newcommand{\maincolumnfontcolor}{black}
 
 %% Graphics
 \RequirePackage{graphicx}
@@ -57,6 +60,9 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
+\RequirePackage{qrcode}
+\RequirePackage{wrapfig}
+\RequirePackage{setspace}
 
 
 
@@ -72,28 +78,31 @@
 
 %%%% SIZING OPTIONS
 
-\newcommand{\fontsizestandard}{\fontsize{32.00}{50.50} \selectfont}
+\newcommand{\fontsizestandard}{\fontsize{28.00}{44.19} \selectfont}
 \newcommand{\fontsizemain}{\fontsize{116.00}{220.00} \selectfont}
-\newcommand{\fontsizetitle}{\fontsize{80.00}{120.00} \selectfont}
-\newcommand{\fontsizeauthor}{\fontsize{48.00}{68.00} \selectfont}
+\newcommand{\fontsizetitle}{\fontsize{60.00}{90.00} \selectfont}
+\newcommand{\fontsizeauthor}{\fontsize{36.00}{51.00} \selectfont}
 \newcommand{\fontsizesection}{\fontsize{48.00}{68.00} \selectfont}
+\newcommand{\fontsizesmall}{\fontsize{21.00}{33.14} \selectfont}
 
 \DeclareOption{a2paper}{
 \geometry{a2paper}
-\renewcommand{\fontsizestandard}{\fontsize{16.00}{25.00} \selectfont}
+\renewcommand{\fontsizestandard}{\fontsize{14.00}{21.86} \selectfont}
 \renewcommand{\fontsizemain}{\fontsize{58.00}{110.00} \selectfont}
-\renewcommand{\fontsizetitle}{\fontsize{40.00}{50.00} \selectfont}
-\renewcommand{\fontsizeauthor}{\fontsize{24.00}{34.00} \selectfont}
+\renewcommand{\fontsizetitle}{\fontsize{30.00}{37.50} \selectfont}
+\renewcommand{\fontsizeauthor}{\fontsize{18.00}{25.50} \selectfont}
 \renewcommand{\fontsizesection}{\fontsize{24.00}{34.00} \selectfont}
+\newcommand{\fontsizesmall}{\fontsize{10.5}{16.39} \selectfont}
 }
 
 \DeclareOption{a1paper}{
 \geometry{a1paper}
-\renewcommand{\fontsizestandard}{\fontsize{22.63}{35.36} \selectfont}
+\renewcommand{\fontsizestandard}{\fontsize{19.80}{30.94} \selectfont}
 \renewcommand{\fontsizemain}{\fontsize{82.02}{155.56} \selectfont}
-\renewcommand{\fontsizetitle}{\fontsize{56.57}{70.71} \selectfont}
-\renewcommand{\fontsizeauthor}{\fontsize{33.94}{48.08} \selectfont}
+\renewcommand{\fontsizetitle}{\fontsize{42.43}{53.03} \selectfont}
+\renewcommand{\fontsizeauthor}{\fontsize{25.46}{36.06} \selectfont}
 \renewcommand{\fontsizesection}{\fontsize{33.94}{48.08} \selectfont}
+\newcommand{\fontsizesmall}{\fontsize{14.85}{23.21} \selectfont}
 }
 
 \DeclareOption{a0paper}{
@@ -104,7 +113,7 @@
 \ProcessOptions\relax
 
 %% Default values for lengths
-\setlength{\leftbarwidth}{0.2\paperwidth}
+\setlength{\leftbarwidth}{0.25\paperwidth}
 \setlength{\rightbarwidth}{0.2\paperwidth}
 \setlength{\columnmarginvertical}{0.025\paperheight}
 \setlength{\columnmarginhorizontal}{0.025\paperheight}
@@ -168,31 +177,31 @@
 }
 \vfill	
 \begin{minipage}[t][0.25\textheight][b]{\textwidth}
+
 #2
 \end{minipage}
 }
 
 %% QR code
-\newcommand{\qrcode}[3]{
-\begin{minipage}[c]{0.30\textwidth}
-\includegraphics[width=\textwidth]{#1}
-\end{minipage}%
-\begin{minipage}[c]{0.12\textwidth}
-\hfill
-\includegraphics[height=0.85\textwidth]{#2}
-\end{minipage}%
-\begin{minipage}[c]{0.50\textwidth}
-#3
-\end{minipage}%
+\newcommand{\qr}[1]{
+\begin{minipage}[c]{0.35\textwidth}
+\begin{center}
+\textbf{Take a picture} to download the full paper
+\end{center}
+\qrcode[hyperlink, height=\textwidth]{#1}
+\end{minipage}
+
 }
 
 %% Compact QR code
-\newcommand{\compactqrcode}[2]{
-\begin{minipage}[t]{0.3\textwidth}
-\includegraphics[width=\textwidth]{#1}
+\newcommand{\compactqr}[1]{
+\begin{minipage}[t]{0.15\textwidth}
+\begin{center}
+The full paper
+\end{center}
+\qrcode[hyperlink, height=\textwidth]{#1}
+\end{minipage}
 
-#2
-\end{minipage}%
 }
 
 %% Section command
@@ -202,6 +211,7 @@
 \textbf{\leavevmode
 #1
 }}\\[0.5em]
+
 }
 
 %% Title command
@@ -214,17 +224,43 @@
 
 %% Author command
 \renewcommand{\author}[1]{
-{\color{gray}\fontsizeauthor
+{\color{black}\fontsizeauthor
 #1
 }\\[-1.0em]
 
 }
 
 %% Institution command
-\newcommand{\institution}[1]{
-\vspace{-1em}
-{\color{gray}
+\newcommand{\institution}[0]{
+\begin{wrapfigure}[0]{r}{0.4\textwidth}
+  \includegraphics[width=0.17\textwidth]{img/cuni} 
+  \hfill
+  \includegraphics[width=0.20\textwidth]{img/ufal} 
+\end{wrapfigure}
+
+\begin{minipage}[t]{0.60\textwidth}
+{
+\color{gray}
+\fontsizesmall{
+Institute of Formal and Applied Linguistics \\
+Faculty of Mathematics and Physics \\
+Charles University, Czech Republic
+}
+
+}
+\end{minipage}
+
+}
+
+
+%% Acknowledgement command
+\newcommand{\ack}[1]{
+\vfill
+\begin{spacing}{1.5}
+{\color{black}\fontsizesmall{
 #1
-}\\[-1.0em]
+}}
+
+\end{spacing}
 
 }

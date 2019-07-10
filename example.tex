@@ -57,52 +57,40 @@
 
 \begin{document}	
 \betterposter{
-%%%%%%%% MAIN COLUMN
+%%%%%%%% MAIN COLUMN START
 
 \maincolumn{
 %%%% Main space
 
 \textbf{Main finding} goes here,
 \\translated into \textbf{plain English}.
-\\\textbf{Emphasize} the important words.
+\\\textbf{Emphasize} the important!
 }{
 %%%% Bottom space
-
-%% QR code
-\qrcode{img/qrcode}{img/smartphoneWhite}{
-\textbf{Take a picture} to
-\\download the full paper
-}
-% Smartphone icon
-% Author: Freepik
-% Retrieved from: https://www.flaticon.com/free-icon/smartphone_65680
-
-%% Compact QR code (comment the previous command and uncomment this one to switch)
-%\compactqrcode{img/qrcode}{
-%\textbf{Take a picture} to
-%\\download the full paper
-%}
-
+%% QR code ... type URL to your paper, for example arxiv
+%% some characters must be escaped by backslash
+\qr{https://arxiv.org/abs/1809.00357}
+% For smaller QR use following:
+% \compactqr{http://ufal.mff.cuni.cz/\~kocmi}
 }
 
+%%%%%%%% MAIN COLUMN END
 }{
-%%%%%%%% LEFT COLUMN
+%%%%%%%% LEFT COLUMN START
 
-\title{The Title}
-\author{Mike Morrison}
-\author{Rafael Bailo}
-\institution{Optional Institution Under Name}
+\title{The Title of Your Amaizing Paper}
+\author{Mike Morrison, Rafael Bailo and Tom Kocmi}
+\institution{}
+
+%%%%%%%% SECTION FOR PEOPLE TO READ BY THEMSELVES
 
 \section{Introduction}
-Here is an itemised list:
-\begin{itemize}
-\item The first item.
-\item The second item.
-\item The third item.
-\end{itemize}
+This section is for participants to read through by themselves without your 
+interaction. Remember, that you are standing on the right side of the poster, 
+thus on the left side can several people stand and read this section without 
+your interuption.
 
-\section{A Diagram}
-Here is a diagram:
+First specify what was your problem, maybe add some graph
 \begin{center}
 % Linear regression
 % Author: Henri Menke
@@ -110,38 +98,74 @@ Here is a diagram:
 \includegraphics[width=\textwidth]{img/tikzexample1}
 \end{center}
 
-\section{Fundamental Theorem\\of Calculus}
-If $f$ is continuous on the closed interval $[a,b]$ and $F$ is the indefinite integral of $f$ on $[a,b]$, then
+\section{Methods}
+
+Describe your contribution, what is your main goal. Add explanatory equation, etc.
+
 \begin{equation}
 \int_a^b f(x)\,\mathrm{d}x = F(b)-F(a).
 \end{equation}
 
-\section{Conclusion}
-This is a great poster format!
+\section{Results}
 
-%% This fills the space between the content and the logo
-\vfill
+Be brief about your results, maybe list them as individual items. 
 
-%% Institution logo
-\includegraphics[width=\textwidth]{img/logo}\\
+\begin{itemize}
+\item The first item.
+\item The second item.
+\item The third item.
+\end{itemize}
 
+
+
+
+
+%%%%%%%% LEFT COLUMN END
 }{
-%%%%%%%% RIGHT COLUMN
+%%%%%%%% RIGHT COLUMN START 
+% you can space sections by \vspace*{3.0em}
 
-Here you can add \textbf{supplementary material}. For instance, a new diagram:
+Here you can add \textbf{supplementary material}. Remember, this section will be 
+right next to you, since you are standing on the right side of the poster. 
+Use this section for supplementary material that is needed for YOUR oral 
+explanation. Do not care about titles or naming the sections because you will 
+tell the participants what is what.
+
+
+\vspace*{3.0em}
+
+For instance, a table:
+
+\begin{tabular}{lll}
+ Country Name & ISO ALPHA 2  & ISO ALPHA 3 \\
+ \hline
+ Afghanistan   & AF & AFG \\
+ Aland Islands & AX & ALA \\
+ Albania       & AL & ALB \\
+ Algeria       & DZ & DZA \\
+ American Samoa& AS & ASM \\
+ Andorra       & AD & AND \\
+ Angola        & AO & AGO \\
+ \hline
+\end{tabular}
+
+\vspace*{3.0em}
+
+Or very important and cute kittens:
 \begin{center}
-% Commutative diagram with edges passing under/over
-% Author: Stefan Kottwitz, http://texblog.net/
-% Retrieved from: http://www.texample.net/tikz/examples/commutative-diagram/
-\includegraphics[width=\textwidth]{img/tikzexample2}
+\includegraphics[width=\textwidth]{img/kittens}
+% Author: Bara Prochazkova
+% Retrieved by Tom Kocmi
 \end{center}
 
-Some cute ducklings:
-\begin{center}
-% Picture of ducklings
-% Author: Magda Ehlers, https://www.pexels.com/@magda-ehlers-pexels
-% Retrieved from: https://www.pexels.com/photo/selective-focus-photo-of-flock-of-ducklings-perching-on-gray-concrete-pavement-1300355/
-\includegraphics[width=\textwidth]{img/ducklings}
-\end{center}
+
+
+
+\ack{Acknowledgements. You can move them to either of sidebars. The center part should not be used for acknowledgement even as it looks like there is plenty of space.}
+
+
+%%%%%%%% RIGHT COLUMN END
 }
 \end{document}
+
+
