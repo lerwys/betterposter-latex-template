@@ -34,5 +34,7 @@ will let `betterposter` deal with the `a0paper` option, but will pass `fleqn` di
 ## Acknowledgements
 
 Mike Morrison - Author of **Better Poster** design
+
 Rafael Bailo - design imported to latex
+
 Tom Kocmi - modified for UFAL purposes
