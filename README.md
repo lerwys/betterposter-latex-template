@@ -9,7 +9,7 @@ The **Better Poster** is [Mike Morrison](https://twitter.com/mikemorrison)'s res
  - If you want to see how people are using the Better Poster design, see [#betterposter](https://twitter.com/hashtag/betterposter?src=hash) on twitter.
 
 <kbd>
-<img src="https://raw.githubusercontent.com/rafaelbailo/betterposter-latex-template/master/example.png" width="600px" />
+<img src="example.png" />
 </kbd>
 
 ### Class Options
