@@ -215,10 +215,12 @@ The full paper
 }
 
 %% Title command
-\renewcommand{\title}[1]{
+\long\def\title#1{
 {\fontsizetitle\textbf{\leavevmode
 #1
-}}\\
+}\par
+}
+\vspace*{1 em}
 
 }
 
