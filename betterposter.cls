@@ -165,8 +165,6 @@
 }
 
 
-
-
 %% Main beterposter command VERTICAL
 \newcommand{\betterpostervertical}[4]{%
 \noindent
@@ -199,6 +197,9 @@
 \begin{multicols}{2}
 #3
 \end{multicols}
+\vspace*{5 em}
+#1
+
 }%
 \column{\dimexpr \textheight-\topbarheight\relax}{0.1in}%
 {\maincolumnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\dimexpr 0.0\columnmarginhorizontal}{}%
@@ -206,9 +207,6 @@
 \column{\dimexpr \textheight-\topbarheight\relax}{\dimexpr \textwidth-\verticalleftsidebarwidth-0.1in\relax}%
 {\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{#4}
 }
-
-
-
 
 
 %% Coloured column command
