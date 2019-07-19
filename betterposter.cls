@@ -21,9 +21,6 @@
 \RequirePackage{geometry} 
 \geometry{a0paper}
 
-%% Paper orientation
-\geometry{landscape}
-
 %% Remove default margins
 \geometry{margin=0in}
 
@@ -60,9 +57,12 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
+
+%% Other packages
 \RequirePackage{qrcode}
 \RequirePackage{wrapfig}
 \RequirePackage{setspace}
+\RequirePackage{multicol}
 
 
 
@@ -76,6 +76,14 @@
 \newlength{\maincolumnmarginvertical}
 \newlength{\maincolumnmarginhorizontal}
 
+%% Vertical lengths
+\newlength{\topbarheight}
+\newlength{\verticalleftsidebarwidth}
+
+%%
+\newcommand{\betterposter}[4]{\betterpostervertical{#1}{#2}{#3}{#4}}
+
+
 %%%% SIZING OPTIONS
 
 \newcommand{\fontsizestandard}{\fontsize{28.00}{44.19} \selectfont}
@@ -84,6 +92,13 @@
 \newcommand{\fontsizeauthor}{\fontsize{36.00}{51.00} \selectfont}
 \newcommand{\fontsizesection}{\fontsize{48.00}{68.00} \selectfont}
 \newcommand{\fontsizesmall}{\fontsize{21.00}{33.14} \selectfont}
+
+
+%% Paper orientation
+\DeclareOption{landscape}{
+\geometry{landscape}
+\renewcommand{\betterposter}[4]{\betterposterhorizontal{#1}{#2}{#3}{#4}}
+}
 
 \DeclareOption{a2paper}{
 \geometry{a2paper}
@@ -120,23 +135,92 @@
 \setlength{\maincolumnmarginvertical}{0.07\paperheight}
 \setlength{\maincolumnmarginhorizontal}{0.07\paperheight}
 
+%% Default value for vertical lengths
+\setlength{\topbarheight}{0.3\paperheight}
+\setlength{\verticalleftsidebarwidth}{0.66\paperwidth}
 
 
 %%%% TEMPLATE COMMANDS
 
-%% Main beterposter command
-\newcommand{\betterposter}[3]{%
+
+%% Main beterposter command HORIZONTAL
+\newcommand{\betterposterhorizontal}[4]{%
 \noindent
 % Left column
 \column{\dimexpr 1.0\textheight\relax}{\leftbarwidth}%
-{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{#2}%
+{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{
+\papertitle{\title}
+\paperauthor{\author}
+\logos{0.4\textwidth}
+\institution{0.6\textwidth}
+#3}%
 % Central column
 \column{\dimexpr 1.0\textheight\relax}{
 \dimexpr 1.0\textwidth-\leftbarwidth-\rightbarwidth\relax
-}{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\maincolumnmarginvertical}{\maincolumnmarginhorizontal}{#1}%
+}{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\maincolumnmarginvertical}{\maincolumnmarginhorizontal}{
+\maincolumn{#2}{#1}}%
 % Right column
 \column{\dimexpr 1.0\textheight\relax}{\rightbarwidth}%
-{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{#3}%
+{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{#4}%
+}
+
+
+
+
+%% Main beterposter command VERTICAL
+\newcommand{\betterpostervertical}[4]{%
+\noindent
+% Main/Central column
+% TODO nevim co s tim je, ze nejde dat 1.0
+\vcolumn{\dimexpr 0.99\topbarheight\relax}{
+\dimexpr \textwidth\relax
+}{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\maincolumnmarginvertical}{\maincolumnmarginhorizontal}{
+\centering
+\fontsizemain
+
+#2
+
+}
+\noindent
+% Left column
+\column{\dimexpr \textheight-\topbarheight\relax}{\verticalleftsidebarwidth}%
+{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{%
+%
+\logos{0.2\textwidth}
+\begin{minipage}[t]{0.8\textwidth}
+\papertitle{\title}
+\paperauthor{\author}
+\end{minipage}
+
+\institution{\textwidth}
+\vspace*{1 em}
+
+\setlength{\columnsep}{1em}
+\begin{multicols}{2}
+#3
+\end{multicols}
+}%
+\column{\dimexpr \textheight-\topbarheight\relax}{0.1in}%
+{\maincolumnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\dimexpr 0.0\columnmarginhorizontal}{}%
+% Right column
+\column{\dimexpr \textheight-\topbarheight\relax}{\dimexpr \textwidth-\verticalleftsidebarwidth-0.1in\relax}%
+{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{#4}
+}
+
+
+
+
+
+%% Coloured column command
+\newcommand{\vcolumn}[7]{%
+\parbox[s][#1][t]{#2}{%
+\noindent\colorbox{#3}{%
+\begin{minipage}[t][
+\dimexpr 1.0\textheight\relax
+][t]{\dimexpr 1.0\textwidth-0\fboxrule-2\fboxsep\relax}
+{\color{#4}\centeredpage{#5}{#6}{#7}}%
+\end{minipage}}%
+}%
 }
 
 %% Coloured column command
@@ -215,7 +299,7 @@ The full paper
 }
 
 %% Title command
-\long\def\title#1{
+\long\def\papertitle#1{
 {\fontsizetitle\textbf{\leavevmode
 #1
 }\par
@@ -225,29 +309,37 @@ The full paper
 }
 
 %% Author command
-\renewcommand{\author}[1]{
+\newcommand{\paperauthor}[1]{
 {\color{black}\fontsizeauthor
 #1
 }\\[-1.0em]
 
 }
 
-%% Institution command
-\newcommand{\institution}[0]{
-\begin{wrapfigure}[0]{r}{0.4\textwidth}
-  \includegraphics[width=0.17\textwidth]{img/cuni} 
+
+%% Logos command
+\newcommand{\logos}[1]{
+\begin{wrapfigure}[0]{r}{#1}
+  \includegraphics[height=8.0ex]{img/ufal} 
   \hfill
-  \includegraphics[width=0.20\textwidth]{img/ufal} 
+  \includegraphics[height=8.0ex]{img/cuni} 
 \end{wrapfigure}
 
-\begin{minipage}[t]{0.60\textwidth}
+}
+
+
+%% Institution command
+\newcommand{\institution}[1]{
+\begin{minipage}[t]{#1}
 {
 \color{gray}
+\begin{flushleft}
 \fontsizesmall{
-Institute of Formal and Applied Linguistics \\
-Faculty of Mathematics and Physics \\
-Charles University, Czech Republic
+Institute~of~Formal~and~Applied~Linguistics, 
+Faculty~of~Mathematics~and~Physics, 
+Charles~University,~Czech~Republic
 }
+\end{flushleft}
 
 }
 \end{minipage}
@@ -255,9 +347,11 @@ Charles University, Czech Republic
 }
 
 
+
+
 %% Acknowledgement command
 \newcommand{\ack}[1]{
-\vfill
+%\vfill
 \begin{spacing}{1.5}
 {\color{black}\fontsizesmall{
 #1
