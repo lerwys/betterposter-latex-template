@@ -63,6 +63,7 @@
 \RequirePackage{wrapfig}
 \RequirePackage{setspace}
 \RequirePackage{multicol}
+\RequirePackage{changepage}
 
 
 
@@ -78,10 +79,11 @@
 
 %% Vertical lengths
 \newlength{\topbarheight}
+\newlength{\bottombarheight}
 \newlength{\verticalleftsidebarwidth}
 
 %%
-\newcommand{\betterposter}[4]{\betterpostervertical{#1}{#2}{#3}{#4}}
+\newcommand{\betterposter}[3]{\betterpostervertical{#1}{#2}{#3}}
 
 
 %%%% SIZING OPTIONS
@@ -97,7 +99,7 @@
 %% Paper orientation
 \DeclareOption{landscape}{
 \geometry{landscape}
-\renewcommand{\betterposter}[4]{\betterposterhorizontal{#1}{#2}{#3}{#4}}
+\renewcommand{\betterposter}[3]{\betterposterhorizontal{#1}{#2}{#3}}
 }
 
 \DeclareOption{a2paper}{
@@ -137,6 +139,7 @@
 
 %% Default value for vertical lengths
 \setlength{\topbarheight}{0.3\paperheight}
+\setlength{\bottombarheight}{0.15\paperheight}
 \setlength{\verticalleftsidebarwidth}{0.66\paperwidth}
 
 
@@ -144,7 +147,7 @@
 
 
 %% Main beterposter command HORIZONTAL
-\newcommand{\betterposterhorizontal}[4]{%
+\newcommand{\betterposterhorizontal}[3]{%
 \noindent
 % Left column
 \column{\dimexpr 1.0\textheight\relax}{\leftbarwidth}%
@@ -153,20 +156,28 @@
 \paperauthor{\author}
 \logos{0.4\textwidth}
 \institution{0.6\textwidth}
-#3}%
+#2}%
 % Central column
 \column{\dimexpr 1.0\textheight\relax}{
 \dimexpr 1.0\textwidth-\leftbarwidth-\rightbarwidth\relax
 }{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\maincolumnmarginvertical}{\maincolumnmarginhorizontal}{
-\maincolumn{#2}{#1}}%
+\maincolumn{#1}{\qr{\url_qrcode}
+\vspace{5em}
+\begin{spacing}{1.5}
+{\color{black}\fontsizesmall{
+\acknowledgement
+}}
+
+\end{spacing}
+}}%
 % Right column
 \column{\dimexpr 1.0\textheight\relax}{\rightbarwidth}%
-{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{#4}%
+{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{#3}%
 }
 
 
 %% Main beterposter command VERTICAL
-\newcommand{\betterpostervertical}[4]{%
+\newcommand{\betterpostervertical}[3]{%
 \noindent
 % Main/Central column
 % TODO nevim co s tim je, ze nejde dat 1.0
@@ -176,12 +187,12 @@
 \centering
 \fontsizemain
 
-#2
+#1
 
 }
 \noindent
 % Left column
-\column{\dimexpr \textheight-\topbarheight\relax}{\verticalleftsidebarwidth}%
+\hcolumn{\dimexpr \paperheight-\topbarheight-\bottombarheight\relax}{\verticalleftsidebarwidth}%
 {\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{%
 %
 \logos{0.2\textwidth}
@@ -193,19 +204,34 @@
 \institution{\textwidth}
 \vspace*{1 em}
 
-\setlength{\columnsep}{1em}
+\setlength{\columnsep}{2em}
 \begin{multicols}{2}
-#3
+#2
 \end{multicols}
-\vspace*{5 em}
-#1
-
 }%
-\column{\dimexpr \textheight-\topbarheight\relax}{0.1in}%
+\hcolumn{\dimexpr \paperheight-\topbarheight-\bottombarheight\relax}{0.5em}%
 {\maincolumnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\dimexpr 0.0\columnmarginhorizontal}{}%
 % Right column
-\column{\dimexpr \textheight-\topbarheight\relax}{\dimexpr \textwidth-\verticalleftsidebarwidth-0.1in\relax}%
-{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{#4}
+\hcolumn{\dimexpr \paperheight-\topbarheight-\bottombarheight\relax}{\dimexpr \textwidth-\verticalleftsidebarwidth-0.5em\relax}%
+{\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{#3}
+
+\noindent
+\vcolumn{\dimexpr \bottombarheight\relax}{
+\dimexpr \textwidth\relax
+}{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\dimexpr \columnmarginvertical\relax}{\maincolumnmarginhorizontal}{
+
+\compactqr{\url_qrcode}
+\begin{minipage}[t][\dimexpr \bottombarheight-\columnmarginvertical-\columnmarginvertical\relax][b]{0.85\textwidth}%
+\begin{adjustwidth}{20em}{0em}
+\begin{spacing}{1.5}%
+{\color{black}\fontsizesmall{
+\acknowledgement
+}}%
+\end{spacing}
+\end{adjustwidth}
+\end{minipage}
+
+}
 }
 
 
@@ -213,12 +239,23 @@
 \newcommand{\vcolumn}[7]{%
 \parbox[s][#1][t]{#2}{%
 \noindent\colorbox{#3}{%
+{\color{#4}\centeredpage{#5}{#6}{#7}}%
+}%
+}%
+}
+
+%% Coloured column command
+\newcommand{\hcolumn}[7]{%
+\begin{minipage}[t][\dimexpr #1][t]{#2}%
+\parbox[s][#1][t]{#2}{%
+\noindent\colorbox{#3}{%
 \begin{minipage}[t][
 \dimexpr 1.0\textheight\relax
 ][t]{\dimexpr 1.0\textwidth-0\fboxrule-2\fboxsep\relax}
-{\color{#4}\centeredpage{#5}{#6}{#7}}%
+{\leavevmode\color{#4}\centeredpage{#5}{#6}{#7}}%
 \end{minipage}}%
 }%
+\end{minipage}%
 }
 
 %% Coloured column command
@@ -283,7 +320,6 @@ The full paper
 \end{center}
 \qrcode[hyperlink, height=\textwidth]{#1}
 \end{minipage}
-
 }
 
 %% Section command

@@ -12,24 +12,18 @@
 
 
 %%%% REMOVE lanscape FOR VERTICAL POSTER
-%\documentclass[a0paper,fleqn,landscape]{betterposter}
-\documentclass[a0paper,fleqn]{betterposter}
+\documentclass[a0paper,fleqn,landscape]{betterposter}
+%\documentclass[a0paper,fleqn]{betterposter}
 
 
 \gdef\title{The Title of Your Amaizing Paper}
 \gdef\author{Mike Morrison, Rafael Bailo and Tom Kocmi}
+\gdef\url_qrcode{http://ufal.mff.cuni.cz/}
+\gdef\acknowledgement{Acknowledgements of your paper. This template is based on Mike Morrison's idea of Better Poster. It was modified to latex by Rafael Bailo and modified for UFAL purposes by Tom Kocmi.}
 
 
 \begin{document}	
 \betterposter{
-%%%% QR SPACE
-%% QR code ... type URL to your paper, for example arxiv
-%% some characters must be escaped by backslash
-\qr{http://ufal.mff.cuni.cz/}
-% For smaller QR use following:
-% \compactqr{http://ufal.mff.cuni.cz/\~kocmi}
-%%%%%%%% END OF QR SPACE
-}{
 
 
 %%%%%%%% MAIN COLUMN START
@@ -77,6 +71,12 @@ Be brief about your results, maybe list them as individual items.
 \end{itemize}
 
 
+\vspace*{3.0em}
+
+Note: if you want to scale a graph or something to the full width of a column, use: 
+
+\resizebox{\columnwidth}{!}{YOUR OBJECT}
+
 
 
 %%%%%%%% LEFT COLUMN END
@@ -120,15 +120,9 @@ Or very important and cute kittens:
 \end{center}
 
 
-\vspace*{3.0em}
-
-Note: if you want to scale a graph or something to the full width of a column, use: 
-\resizebox{\columnwidth}{!}{YOUR OBJECT}
 
 
-\vspace*{3.0em}
 
-\ack{Acknowledgements. You can move them to either of sidebars. The center part should not be used for acknowledgement even as it looks like there is plenty of space.}
 
 
 %%%%%%%% RIGHT COLUMN END
