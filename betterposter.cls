@@ -129,6 +129,12 @@
 \geometry{a0paper}
 }
 
+\newif\ifleftcolumns
+\leftcolumnstrue
+\DeclareOption{noleftcolumns}{
+\leftcolumnsfalse
+}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
@@ -202,10 +208,10 @@
 \institution{\textwidth}
 \vspace*{1 em}
 
-\setlength{\columnsep}{2em}
-\begin{multicols}{2}
+\ifleftcolumns\setlength{\columnsep}{2em}\begin{multicols}{2}\fi
 #2
-\end{multicols}
+\ifleftcolumns\end{multicols}\fi
+
 }%
 \hcolumn{\dimexpr \paperheight-\topbarheight-\bottombarheight\relax}{0.5em}%
 {\maincolumnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\dimexpr 0.0\columnmarginhorizontal}{}%
