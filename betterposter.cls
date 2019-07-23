@@ -93,6 +93,7 @@
 \newcommand{\fontsizetitle}{\fontsize{60.00}{90.00} \selectfont}
 \newcommand{\fontsizeauthor}{\fontsize{36.00}{51.00} \selectfont}
 \newcommand{\fontsizesection}{\fontsize{48.00}{68.00} \selectfont}
+\newcommand{\fontsizesubsection}{\fontsize{36.00}{51.00} \selectfont}
 \newcommand{\fontsizesmall}{\fontsize{21.00}{33.14} \selectfont}
 
 
@@ -112,6 +113,7 @@
 \renewcommand{\fontsizetitle}{\fontsize{30.00}{37.50} \selectfont}
 \renewcommand{\fontsizeauthor}{\fontsize{18.00}{25.50} \selectfont}
 \renewcommand{\fontsizesection}{\fontsize{24.00}{34.00} \selectfont}
+\renewcommand{\fontsizesubsection}{\fontsize{18.00}{25.00} \selectfont}
 \newcommand{\fontsizesmall}{\fontsize{10.5}{16.39} \selectfont}
 }
 
@@ -122,6 +124,7 @@
 \renewcommand{\fontsizetitle}{\fontsize{42.43}{53.03} \selectfont}
 \renewcommand{\fontsizeauthor}{\fontsize{25.46}{36.06} \selectfont}
 \renewcommand{\fontsizesection}{\fontsize{33.94}{48.08} \selectfont}
+\renewcommand{\fontsizesubsection}{\fontsize{25.46}{36.06} \selectfont}
 \newcommand{\fontsizesmall}{\fontsize{14.85}{23.21} \selectfont}
 }
 
@@ -331,6 +334,16 @@ The full paper
 \textbf{\leavevmode
 #1
 }}\\[0.5em]
+
+}
+
+%% Subsection command
+\renewcommand{\subsection}[1]{
+
+\vspace{.5em}{\fontsizesubsection\selectfont
+\textbf{\leavevmode
+#1
+}}\vspace{.5em}
 
 }
 
