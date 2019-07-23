@@ -97,7 +97,10 @@
 
 
 %% Paper orientation
+\newif\iflandscape
+\landscapefalse
 \DeclareOption{landscape}{
+\landscapetrue
 \geometry{landscape}
 \renewcommand{\betterposter}[3]{\betterposterhorizontal{#1}{#2}{#3}}
 }
