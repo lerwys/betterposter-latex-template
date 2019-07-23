@@ -223,11 +223,9 @@
 \compactqr{\url_qrcode}
 \begin{minipage}[t][\dimexpr \bottombarheight-\columnmarginvertical-\columnmarginvertical\relax][b]{0.85\textwidth}%
 \begin{adjustwidth}{20em}{0em}
-\begin{spacing}{1.5}%
 {\color{black}\fontsizesmall{
-\acknowledgement
+\acknowledgement\par
 }}%
-\end{spacing}
 \end{adjustwidth}
 \end{minipage}
 
