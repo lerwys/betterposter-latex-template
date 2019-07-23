@@ -377,18 +377,3 @@ Charles~University,~Czech~Republic
 \end{minipage}
 
 }
-
-
-
-
-%% Acknowledgement command
-\newcommand{\ack}[1]{
-%\vfill
-\begin{spacing}{1.5}
-{\color{black}\fontsizesmall{
-#1
-}}
-
-\end{spacing}
-
-}
