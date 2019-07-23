@@ -200,7 +200,7 @@
 {\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{%
 %
 \logos{0.2\textwidth}
-\begin{minipage}[t]{0.8\textwidth}
+\begin{minipage}[t]{0.75\textwidth}
 \papertitle{\title}
 \paperauthor{\author}
 \end{minipage}
