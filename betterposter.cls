@@ -166,12 +166,9 @@
 }{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\maincolumnmarginvertical}{\maincolumnmarginhorizontal}{
 \maincolumn{#1}{\qr{\urlQRcode}
 \vspace{5em}
-\begin{spacing}{1.5}
 {\color{black}\fontsizesmall{
-\acknowledgement
+\acknowledgement\par
 }}
-
-\end{spacing}
 }}%
 % Right column
 \column{\dimexpr 1.0\textheight\relax}{\rightbarwidth}%
