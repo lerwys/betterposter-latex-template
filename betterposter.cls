@@ -161,7 +161,7 @@
 \column{\dimexpr 1.0\textheight\relax}{
 \dimexpr 1.0\textwidth-\leftbarwidth-\rightbarwidth\relax
 }{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\maincolumnmarginvertical}{\maincolumnmarginhorizontal}{
-\maincolumn{#1}{\qr{\url_qrcode}
+\maincolumn{#1}{\qr{\urlQRcode}
 \vspace{5em}
 \begin{spacing}{1.5}
 {\color{black}\fontsizesmall{
@@ -220,7 +220,7 @@
 \dimexpr \textwidth\relax
 }{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\dimexpr \columnmarginvertical\relax}{\maincolumnmarginhorizontal}{
 
-\compactqr{\url_qrcode}
+\compactqr{\urlQRcode}
 \begin{minipage}[t][\dimexpr \bottombarheight-\columnmarginvertical-\columnmarginvertical\relax][b]{0.85\textwidth}%
 \begin{adjustwidth}{20em}{0em}
 {\color{black}\fontsizesmall{
