@@ -384,9 +384,13 @@ The full paper
 \color{gray}
 \begin{flushleft}
 \fontsizesmall{
-Institute~of~Formal~and~Applied~Linguistics, 
-Faculty~of~Mathematics~and~Physics, 
-Charles~University,~Czech~Republic
+
+\vspace{1em}
+
+Charles~University, Faculty~of~Mathematics~and~Physics\\
+Institute~of~Formal~and~Applied~Linguistics\\ 
+Prague, Czech~Republic
+
 }
 \end{flushleft}
 
