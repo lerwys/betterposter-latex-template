@@ -142,12 +142,12 @@
 \ProcessOptions\relax
 
 %% Default values for lengths
-\setlength{\leftbarwidth}{0.25\paperwidth}
+\setlength{\leftbarwidth}{0.3\paperwidth}
 \setlength{\rightbarwidth}{0.2\paperwidth}
 \setlength{\columnmarginvertical}{0.025\paperheight}
 \setlength{\columnmarginhorizontal}{0.025\paperheight}
-\setlength{\maincolumnmarginvertical}{0.07\paperheight}
-\setlength{\maincolumnmarginhorizontal}{0.07\paperheight}
+\setlength{\maincolumnmarginvertical}{0.05\paperheight}
+\setlength{\maincolumnmarginhorizontal}{0.05\paperheight}
 
 %% Default value for vertical lengths
 \setlength{\topbarheight}{0.3\paperheight}
@@ -165,7 +165,7 @@
 \column{\dimexpr 1.0\textheight\relax}{\leftbarwidth}%
 {\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{
 \papertitle{\title}
-\paperauthor{\author}
+\paperauthor{\author}{\email}
 \logos{0.4\textwidth}
 \institution{0.6\textwidth}
 #2}%
@@ -205,7 +205,7 @@
 \logos{0.2\textwidth}
 \begin{minipage}[t]{0.75\textwidth}
 \papertitle{\title}
-\paperauthor{\author}
+\paperauthor{\author}{\email}
 \end{minipage}
 
 \institution{\textwidth}
@@ -358,10 +358,13 @@ The full paper
 }
 
 %% Author command
-\newcommand{\paperauthor}[1]{
+\newcommand{\paperauthor}[2]{
 {\color{black}\fontsizeauthor
 #1
-}\\[-1.0em]
+
+}
+{\tt #2}
+\\[-1.0em]
 
 }
 
