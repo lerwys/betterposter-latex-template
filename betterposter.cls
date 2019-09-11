@@ -81,6 +81,8 @@
 \newlength{\topbarheight}
 \newlength{\bottombarheight}
 \newlength{\verticalleftsidebarwidth}
+\newlength{\footermarginvertical}
+\newlength{\footermarginhorizontal}
 
 %%
 \newcommand{\betterposter}[3]{\betterpostervertical{#1}{#2}{#3}}
@@ -151,8 +153,10 @@
 
 %% Default value for vertical lengths
 \setlength{\topbarheight}{0.3\paperheight}
-\setlength{\bottombarheight}{0.15\paperheight}
+\setlength{\bottombarheight}{0.1\paperheight}
 \setlength{\verticalleftsidebarwidth}{0.66\paperwidth}
+\setlength{\footermarginvertical}{0.02\paperheight}
+\setlength{\footermarginhorizontal}{0.02\paperheight}
 
 
 %%%% TEMPLATE COMMANDS
@@ -225,11 +229,14 @@
 \noindent
 \vcolumn{\dimexpr \bottombarheight\relax}{
 \dimexpr \textwidth\relax
-}{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\dimexpr \columnmarginvertical\relax}{\maincolumnmarginhorizontal}{
+}{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\dimexpr \footermarginvertical\relax}{\footermarginhorizontal}{
 
-\compactqr{\urlQRcode}
-\begin{minipage}[t][\dimexpr \bottombarheight-\columnmarginvertical-\columnmarginvertical\relax][b]{0.85\textwidth}%
-\begin{adjustwidth}{20em}{0em}
+
+\begin{minipage}[t]{0.1\textwidth}
+\qrcode[hyperlink, height=\textwidth]{\urlQRcode}
+\end{minipage}%
+\begin{minipage}[t]{0.9\textwidth}%
+\begin{adjustwidth}{10em}{0em}
 {\color{black}\fontsizesmall{
 \acknowledgement\par
 }}%
@@ -319,7 +326,7 @@
 
 %% Compact QR code
 \newcommand{\compactqr}[1]{
-\begin{minipage}[t]{0.15\textwidth}
+\begin{minipage}[t]{0.15\textwidth} 
 \begin{center}
 The full paper
 \end{center}
