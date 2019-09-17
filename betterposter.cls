@@ -90,7 +90,7 @@
 
 %%%% SIZING OPTIONS
 
-\newcommand{\fontsizestandard}{\fontsize{28.00}{44.19} \selectfont}
+\newcommand{\fontsizestandard}{\fontsize{40.00}{62.75} \selectfont}
 \newcommand{\fontsizemain}{\fontsize{116.00}{220.00} \selectfont}
 \newcommand{\fontsizetitle}{\fontsize{60.00}{90.00} \selectfont}
 \newcommand{\fontsizeauthor}{\fontsize{36.00}{51.00} \selectfont}
@@ -206,8 +206,8 @@
 \hcolumn{\dimexpr \paperheight-\topbarheight-\bottombarheight\relax}{\verticalleftsidebarwidth}%
 {\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{%
 %
-\logos{0.2\textwidth}
-\begin{minipage}[t]{0.75\textwidth}
+\logos{0.25\textwidth}
+\begin{minipage}[t]{0.7\textwidth}
 \papertitle{\title}
 \paperauthor{\author}{\email}
 \end{minipage}
@@ -379,9 +379,9 @@ The full paper
 %% Logos command
 \newcommand{\logos}[1]{
 \begin{wrapfigure}[0]{r}{#1}
-  \includegraphics[height=8.0ex]{img/ufal} 
+  \includegraphics[height=7.0ex]{img/ufal} 
   \hfill
-  \includegraphics[height=8.0ex]{img/cuni} 
+  \includegraphics[height=7.0ex]{img/cuni} 
 \end{wrapfigure}
 
 }
