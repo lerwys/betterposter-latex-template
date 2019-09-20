@@ -213,9 +213,13 @@
 \hcolumn{\dimexpr \paperheight-\topbarheight-\bottombarheight\relax}{\verticalleftsidebarwidth}%
 {\columnbackgroundcolor}{\columnfontcolor}{\columnmarginvertical}{\columnmarginhorizontal}{%
 %
-\logos{0.25\textwidth}
-\begin{minipage}[t]{0.7\textwidth}
+\begin{minipage}[t]{0.9\textwidth}
 \papertitle{\title}
+\end{minipage}
+
+\logos{0.5\textwidth}
+
+\begin{minipage}[t]{0.5\textwidth}
 \paperauthor{\author}{\email}
 \end{minipage}
 
