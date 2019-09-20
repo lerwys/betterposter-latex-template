@@ -177,7 +177,7 @@
 \column{\dimexpr 1.0\textheight\relax}{
 \dimexpr 1.0\textwidth-\leftbarwidth-\rightbarwidth\relax
 }{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\maincolumnmarginvertical}{\maincolumnmarginhorizontal}{
-\maincolumn{#1}{\qr{\urlQRcode}
+\maincolumn{#1}{
 \vspace{5em}
 {\fontsizesmall\acknowledgement\par}
 }}%
@@ -232,9 +232,14 @@
 }{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\dimexpr \footermarginvertical\relax}{\footermarginhorizontal}{
 
 
-\begin{minipage}[t]{0.1\textwidth}
-\qrcode[hyperlink, height=\textwidth]{\urlQRcode}
-\end{minipage}%
+%\begin{minipage}[t]{0.1\textwidth}
+%\qrcode[hyperlink, height=\textwidth]{\urlQRcode}
+%\end{minipage}%
+
+\qr{\urlQRcode}{img/smartphoneWhite}{
+\textbf{Take a picture} to
+\\download the full paper
+}
 \begin{minipage}[t]{0.9\textwidth}%
 \begin{adjustwidth}{10em}{0em}
 {\color{black}\fontsizesmall{
@@ -314,23 +319,25 @@
 }
 
 %% QR code
-\newcommand{\qr}[1]{
-\begin{minipage}[c]{0.35\textwidth}
-\begin{center}
-\textbf{Take a picture} to download the full paper
-\end{center}
+\newcommand{\qr}[3]{
+\begin{minipage}[c]{0.1\textwidth}
 \qrcode[hyperlink, height=\textwidth]{#1}
+\end{minipage}
+\begin{minipage}[c]{0.05\textwidth}
+\hfill
+\includegraphics[height=0.85\textwidth]{#2}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+#3
 \end{minipage}
 
 }
 
 %% Compact QR code
-\newcommand{\compactqr}[1]{
-\begin{minipage}[t]{0.15\textwidth} 
-\begin{center}
-The full paper
-\end{center}
+\newcommand{\compactqr}[2]{
+\begin{minipage}[t]{0.1\textwidth}
 \qrcode[hyperlink, height=\textwidth]{#1}
+#2
 \end{minipage}
 }
 
