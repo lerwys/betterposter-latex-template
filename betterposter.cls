@@ -45,6 +45,7 @@
 \definecolor{intervention}{RGB}{255,213,79}
 \definecolor{ufal}{RGB}{244,123,32}
 
+\newcommand{\acknowledgementbackgroundcolor}{white}
 \newcommand{\columnbackgroundcolor}{white}
 \newcommand{\columnfontcolor}{black}
 \newcommand{\maincolumnbackgroundcolor}{ufal}
@@ -240,9 +241,10 @@
 \textbf{Take a picture} to
 \\download the full paper
 }
-\begin{minipage}[t]{0.9\textwidth}%
-\begin{adjustwidth}{10em}{0em}
-{\color{black}\fontsizesmall{
+
+\begin{minipage}[t]{0.4\textwidth}%
+\begin{adjustwidth}{25em}{0em}
+{\color{\acknowledgementbackgroundcolor}\fontsizesmall{
 \acknowledgement\par
 }}%
 \end{adjustwidth}
