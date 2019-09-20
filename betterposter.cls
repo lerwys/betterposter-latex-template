@@ -179,6 +179,12 @@
 \dimexpr 1.0\textwidth-\leftbarwidth-\rightbarwidth\relax
 }{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\maincolumnmarginvertical}{\maincolumnmarginhorizontal}{
 \maincolumn{#1}{
+
+\qr{\urlQRcode}{img/smartphoneWhite}{
+\textbf{Take a picture} to
+\\download the full paper
+
+}
 \vspace{5em}
 {\fontsizesmall\acknowledgement\par}
 }}%
