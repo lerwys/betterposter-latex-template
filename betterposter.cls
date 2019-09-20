@@ -4,7 +4,7 @@
 %%%% https://github.com/rafaelbailo/betterposter-latex-template
 %%%%
 %%%% Modified by Tom Kocmi for UFAL purposes
-%%%% 
+%%%%
 %%%% Original design from Mike Morrison
 %%%% https://twitter.com/mikemorrison
 
@@ -18,7 +18,7 @@
 %%%% REQUIRED PACKAGES
 
 %% Paper size
-\RequirePackage{geometry} 
+\RequirePackage{geometry}
 \geometry{a0paper}
 
 %% Remove default margins
@@ -296,7 +296,7 @@
 \begin{minipage}[t][
 \dimexpr 1.0\textheight-2.0#1\relax
 ][t]{
-\dimexpr 1.0\textwidth-2.0#2\relax		
+\dimexpr 1.0\textwidth-2.0#2\relax
 }
 {\fontsizestandard #3}
 \end{minipage}
@@ -313,7 +313,7 @@
 
 \vspace{1em}
 }
-\vfill	
+\vfill
 \begin{minipage}[t][0.25\textheight][b]{\textwidth}
 
 #2
@@ -388,9 +388,9 @@
 %% Logos command
 \newcommand{\logos}[1]{
 \begin{wrapfigure}[0]{r}{#1}
-  \includegraphics[height=7.0ex]{img/ufal} 
+  \includegraphics[height=7.0ex]{img/ufal}
   \hfill
-  \includegraphics[height=7.0ex]{img/cuni} 
+  \includegraphics[height=7.0ex]{img/cuni}
 \end{wrapfigure}
 
 }
@@ -407,7 +407,7 @@
 \vspace{1em}
 
 Charles~University, Faculty~of~Mathematics~and~Physics\\
-Institute~of~Formal~and~Applied~Linguistics\\ 
+Institute~of~Formal~and~Applied~Linguistics\\
 Prague, Czech~Republic
 
 }
