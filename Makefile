@@ -1,11 +1,12 @@
 # Makefile for Latex work
 
+CLASSES = $(wildcard *.cls)
 TEXFILE = main.tex
 DIAGRAM = $(wildcard *.dia)
 
 .PHONY: clean view
 
-$(TEXFILE:.tex=.pdf): $(TEXFILE) $(DIAGRAM:.dia=.pdf)
+$(TEXFILE:.tex=.pdf): $(TEXFILE) $(CLASSES) $(DIAGRAM:.dia=.pdf)
 	pdflatex $(TEXFILE)
 # Not very nice hack to get references right
 	pdflatex $(TEXFILE)
