@@ -401,6 +401,18 @@
 
 }
 
+\newcommand{\logosmore}[2]{
+\begin{wrapfigure}[0]{r}{#1}
+  \centering
+  \includegraphics[height=7.0ex]{#2}
+  \hfill
+  \includegraphics[height=7.0ex]{img/cnpem_logo}
+  \hfill
+  \includegraphics[height=7.0ex]{img/lnls_logo}
+\end{wrapfigure}
+
+}
+
 
 %% Institution command
 \newcommand{\institution}[1]{
