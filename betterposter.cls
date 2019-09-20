@@ -202,7 +202,7 @@
 \vcolumn{\dimexpr 0.99\topbarheight\relax}{
 \dimexpr \textwidth\relax
 }{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\maincolumnmarginvertical}{\maincolumnmarginhorizontal}{
-\centering
+\raggedright
 \fontsizemain
 
 #1
