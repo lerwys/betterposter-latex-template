@@ -239,10 +239,6 @@
 }{\maincolumnbackgroundcolor}{\maincolumnfontcolor}{\dimexpr \footermarginvertical\relax}{\footermarginhorizontal}{
 
 
-%\begin{minipage}[t]{0.1\textwidth}
-%\qrcode[hyperlink, height=\textwidth]{\urlQRcode}
-%\end{minipage}%
-
 \qr{\urlQRcode}{img/smartphoneWhite}{
 \textbf{Take a picture} to
 \\download the full paper
