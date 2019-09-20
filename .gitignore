@@ -1,0 +1,9 @@
+# Text files
+*.swap
+*.swp
+*~
+
+# Latex generated files
+*.aux
+*.log
+*.pdf
