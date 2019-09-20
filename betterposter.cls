@@ -217,7 +217,7 @@
 \papertitle{\title}
 \end{minipage}
 
-\logos{0.5\textwidth}
+\logosmore{0.5\textwidth}{\conferenceLogo}
 
 \begin{minipage}[t]{0.5\textwidth}
 \paperauthor{\author}{\email}
