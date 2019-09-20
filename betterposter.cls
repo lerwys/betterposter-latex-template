@@ -388,9 +388,9 @@
 %% Logos command
 \newcommand{\logos}[1]{
 \begin{wrapfigure}[0]{r}{#1}
-  \includegraphics[height=7.0ex]{img/ufal}
+  \includegraphics[height=7.0ex]{img/cnpem_logo}
   \hfill
-  \includegraphics[height=7.0ex]{img/cuni}
+  \includegraphics[height=7.0ex]{img/lnls_logo}
 \end{wrapfigure}
 
 }
@@ -406,10 +406,9 @@
 
 \vspace{1em}
 
-Charles~University, Faculty~of~Mathematics~and~Physics\\
-Institute~of~Formal~and~Applied~Linguistics\\
-Prague, Czech~Republic
-
+Brazilian~Synchrotron~Light~Laboratory,~LNLS\\
+Beam~Diagnostics~Group\\
+Campinas,~Brazil\\
 }
 \end{flushleft}
 
