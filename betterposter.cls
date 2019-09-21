@@ -246,10 +246,9 @@
 \qr{\urlQRcode}{img/smartphoneWhite}{
 \textbf{Take a picture} to
 \\download the full paper
-}
-
-\begin{minipage}[t]{0.4\textwidth}%
-\begin{adjustwidth}{25em}{0em}
+}%
+\begin{minipage}[c]{0.5\textwidth}%
+\begin{adjustwidth}{20em}{-7em}
 {\color{\acknowledgementbackgroundcolor}\fontsizesmall{
 \acknowledgement\par
 }}%
