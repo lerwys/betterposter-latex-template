@@ -186,7 +186,7 @@
 
 }
 \vspace{5em}
-{\fontsizesmall\acknowledgement\par}
+{\fontsizestandard\acknowledgement\par}
 }}%
 % Right column
 \column{\dimexpr 1.0\textheight\relax}{\rightbarwidth}%
@@ -334,10 +334,9 @@
 \hfill
 \includegraphics[height=0.85\textwidth]{#2}
 \end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
+\begin{minipage}[c]{0.20\textwidth}
 #3
-\end{minipage}
-
+\end{minipage}%
 }
 
 %% Compact QR code
