@@ -432,3 +432,15 @@ Campinas,~Brazil\\
 \end{minipage}
 
 }
+
+\newcounter{tempcolnum}
+
+%% Span two column in a multicolumn environment
+%% from: https://tex.stackexchange.com/questions/59166/span-column-in-a-multicols-environment
+\newcommand{\multicolinterrupt}[1]{% Stuff to span both rows
+\setcounter{tempcolnum}{\col@number}
+\end{multicols}
+#1%
+\begin{multicols}{\value{tempcolnum}}
+}
+
