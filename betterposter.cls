@@ -344,7 +344,7 @@
 \begin{minipage}[t]{0.1\textwidth}
 \qrcode[hyperlink, height=\textwidth]{#1}
 #2
-\end{minipage}
+\end{minipage}%
 }
 
 %% Section command
