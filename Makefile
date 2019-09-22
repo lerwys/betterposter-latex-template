@@ -20,9 +20,10 @@ $(TEXFILE:.tex=.pdf): $(TEXFILE) $(CLASSES) \
 	pdflatex $(TEXFILE)
 
 # Static Rule, so it is used instead of the implicit eps to pdf rule.
-# Requires ImageMagick
+# Requires ImageMagick or librsvg2-bin
 $(IMAGE_SVG_PDF): %.pdf : %.svg
-	convert $< $@
+	#convert $< $@
+	rsvg-convert -f pdf -o $@ $<
 
 %.pdf: %.eps
 	epstopdf $<
