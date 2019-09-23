@@ -184,8 +184,7 @@
 \qr{\urlQRcode}{img/smartphoneWhite}{
 \textbf{Take a picture} to
 \\download the full paper
-
-}
+}%
 \vspace{5em}
 {\fontsizestandard\acknowledgement\par}
 }}%
