@@ -50,38 +50,6 @@ The `\maincolumn` command takes care of the formatting of the main column. It ta
 }
 ```
 
-### The `\qrcode` command
-
-The `\qrcode` command formats the QR code for the poster. It takes three arguments: the path for the QR code image, the path for a small icon (a smartphone by default), and the caption ("Take a picture to download the full paper" by default).
-```
-\qrcode{path/to/image}{path/to/icon}{
-% caption
-}
-```
-
-<img src="doc/qrwithcaption.png" height="200px" />
-
-Alternatively, the `\compactqrcode` command renders a more compact link by omitting the small icon.
-```
-\compactqrcode{path/to/image}{
-% caption
-}
-```
-
-<img src="doc/compactqrwithcaption.png" height="200px" />
-
-#### Generating QR Codes
-
-You should include a QR code that links to a relevant document which complements the poster (your paper, a website containing simulations or data...) There are many free QR code tools available, I have used [www.qr-code-generator.com](https://www.qr-code-generator.com/).
-
-The example included in the template points to this repository:
-
-<img src="doc/qrcode.png" height="200px" />
-
-You can also create QR codes which contain a logo:
-
-<img src="doc/qrcodeARXIV.png" height="200px" />
-
 ### Class Options
 
 The `betterposter` class accepts three options which change the paper size:
