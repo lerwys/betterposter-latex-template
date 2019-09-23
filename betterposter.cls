@@ -46,6 +46,7 @@
 \definecolor{ufal}{RGB}{244,123,32}
 
 \newcommand{\acknowledgementbackgroundcolor}{white}
+\newcommand{\qrcodebackgroundcolor}{black}
 \newcommand{\columnbackgroundcolor}{white}
 \newcommand{\columnfontcolor}{black}
 \newcommand{\maincolumnbackgroundcolor}{ufal}
@@ -327,9 +328,13 @@
 
 %% QR code
 \newcommand{\qr}[3]{
+{
+\noindent\fcolorbox{white}{white}{%
+\color{\qrcodebackgroundcolor}{
 \begin{minipage}[c]{0.1\textwidth}
 \qrcode[hyperlink, height=\textwidth]{#1}
-\end{minipage}
+\end{minipage}}%
+}}%
 \begin{minipage}[c]{0.05\textwidth}
 \hfill
 \includegraphics[height=0.85\textwidth]{#2}
@@ -341,10 +346,14 @@
 
 %% Compact QR code
 \newcommand{\compactqr}[2]{
+{
+\noindent\fcolorbox{white}{white}{%
+\color{\qrcodebackgroundcolor}{
 \begin{minipage}[t]{0.1\textwidth}
 \qrcode[hyperlink, height=\textwidth]{#1}
 #2
-\end{minipage}%
+\end{minipage}}%
+}}%
 }
 
 %% Section command
