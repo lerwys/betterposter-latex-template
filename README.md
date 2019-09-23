@@ -12,6 +12,14 @@ The **Better Poster** is [Mike Morrison](https://twitter.com/mikemorrison)'s res
 <img src="example.png" />
 </kbd>
 
+## Dependencies
+
+In order to use the makefile you need rsvg-convert. You can install it by:
+
+```bash
+sudo apt install librsvg2-bin
+```
+
 ## Documentation
 The template has been implemented as a LaTeX class, `betterposter.cls`. You can load it into your `tex` file by using the command
 ```
